@@ -9,6 +9,7 @@ ENV GRAILS_HOME		/opt/grails
 ENV PATH		$PATH:$GRAILS_HOME/bin:$GRAILS_HOME/sbin
 
 RUN apt-get -y -q update && apt-get install -q -y wget unzip openssl ca-certificates nodejs npm build-essential && \
+    npm install npm@latest -g && \
     npm install -g cnpm && \
     update-ca-certificates && \
     wget -q https://github.com/grails/grails-core/releases/download/v$GRAILS_VERSION/grails-$GRAILS_VERSION.zip && \
