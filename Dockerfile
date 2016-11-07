@@ -10,7 +10,7 @@ ENV PATH		$PATH:$GRAILS_HOME/bin:$GRAILS_HOME/sbin
 
 RUN apt-get -y -q update && apt-get install -q -y wget unzip openssl ca-certificates nodejs npm && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN npm install npm@latest -g && \
     npm install -g cnpm && \
