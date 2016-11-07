@@ -8,11 +8,14 @@ ENV GRAILS_VERSION	3.2.2
 ENV GRAILS_HOME		/opt/grails
 ENV PATH		$PATH:$GRAILS_HOME/bin:$GRAILS_HOME/sbin
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-RUN apt-get -y -q update && apt-get install -q -y wget unzip openssl ca-certificates nodejs && \
+RUN apt-get -y -q update && apt-get install -q -y wget unzip openssl ca-certificates curl && \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -q -y nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
 
 RUN npm install npm@latest -g && \
     npm install -g cnpm && \
